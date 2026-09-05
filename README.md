@@ -4,9 +4,13 @@ This repository holds the architecture and delivery plan for a network-wide **e-
 
 McMillan Woods is a global association of independent chartered accountancy and advisory firms (TAX • AUDIT • ADVISORY), with 77+ countries, 250+ offices, and 3,200+ staff. Member firms already provide bookkeeping, payroll, GST/VAT advisory, and outsourcing. This plan turns that into a paperless, tax-authority-cleared invoice fabric on **AWS**.
 
+## Download
+
+**[docs/McMillan-Woods-E-Invoicing-Architecture-Plan.pptx](docs/McMillan-Woods-E-Invoicing-Architecture-Plan.pptx)** — 16-slide PowerPoint (widescreen 16:9). Open in PowerPoint, Keynote, or Google Slides.
+
 ## Document
 
-**[docs/e-invoicing-architecture-and-delivery-plan.md](docs/e-invoicing-architecture-and-delivery-plan.md)** — final plan:
+**[docs/e-invoicing-architecture-and-delivery-plan.md](docs/e-invoicing-architecture-and-delivery-plan.md)** — full written plan:
 
 - How McMillan Woods actually operates (from the public site)
 - India GST IRP and Malaysia MyInvois clearance models
