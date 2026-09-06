@@ -236,19 +236,51 @@ def build():
         add_text_box(s, x + Inches(0.25), Inches(3.2), Inches(3.45), Inches(3.0), b, 15, CHARCOAL)
     footer(s, 2, total)
 
-    # ----- 3 What McM is -----
+    # ----- 3 What McM is (synced to live mcmillanwoods.com pages) -----
     s = blank_slide(prs)
-    title_block(s, "What the website tells us", "McMillan Woods is not a software vendor. It is a global association of independent CA and advisory firms.")
-    facts = [
-        ("Independent firms", "No equity in each other. Firm A must never see Firm B’s invoices. Secretariat operates; it does not own client data."),
-        ("Services already in house", "Bookkeeping, payroll, GST/VAT returns, outsourcing for start-ups and foreign-owned companies."),
-        ("ERP reality", "Member firms already sit on Tally, SAP, Dynamics, Xero, QuickBooks — connectors are first-class work, not an afterthought."),
-        ("Malaysia head-start", "June 2024 seminar “Beyond e-Invoice Compliance in Malaysia” with YGL-World. Wrap partners; do not rebuild them on Day 1."),
+    title_block(
+        s,
+        "What the website tells us",
+        "Synced to live pages on mcmillanwoods.com — Home, About Us, Accountancy, and the Malaysia e-invoice seminar.",
+    )
+    img_dir = Path("/workspace/docs/slide3-images/cropped")
+    tiles = [
+        (
+            img_dir / "01-homepage.jpg",
+            "1  ·  Home",
+            "Audit, Tax & Advisory  ·  Founder President Dato’ Seri Dr. Raymond Liew  ·  Chairman Tan Sri Datuk Wira Dr. Hj. Mohd Shukor",
+        ),
+        (
+            img_dir / "02-about.jpg",
+            "2  ·  About Us",
+            "Global association of independent, qualified firms  ·  red / maroon / white / black identity  ·  not a software vendor",
+        ),
+        (
+            img_dir / "03-accountancy-services.jpg",
+            "3  ·  Accountancy",
+            "Book-keeping  ·  Payroll (urgent weekly/monthly)  ·  Management accounts  ·  Annual reports",
+        ),
+        (
+            img_dir / "04-malaysia-einvoice.jpg",
+            "4  ·  Events  ·  YGL-World",
+            "Beyond e-Invoice Compliance in Malaysia  ·  26 Jun 2024  ·  four speakers: Raymond Liew, Yeap Kong Chean, Tay Hoay Leng, Yong Cheng Yew",
+        ),
     ]
-    for i, (h, b) in enumerate(facts):
-        col = i % 2
-        row = i // 2
-        card(s, Inches(0.5) + col * Inches(6.35), Inches(1.6) + row * Inches(2.5), Inches(6.1), Inches(2.3), h, b, 16, 14)
+    tile_w, tile_h = Inches(6.18), Inches(2.68)
+    cap_h = Inches(0.58)
+    for i, (img, kicker, caption) in enumerate(tiles):
+        col, row = i % 2, i // 2
+        l = Inches(0.42) + col * (tile_w + Inches(0.14))
+        t = Inches(1.48) + row * (tile_h + Inches(0.12))
+        round_rect(s, l, t, tile_w, tile_h, WHITE)
+        pic_l, pic_t = l + Inches(0.05), t + Inches(0.05)
+        pic_w = tile_w - Inches(0.10)
+        pic_h = tile_h - cap_h - Inches(0.08)
+        s.shapes.add_picture(str(img), pic_l, pic_t, pic_w, pic_h)
+        cap_t = t + tile_h - cap_h
+        rect(s, l, cap_t, tile_w, cap_h, MAROON if i != 2 else MAROON_DARK)
+        add_text_box(s, l + Inches(0.12), cap_t + Inches(0.02), tile_w - Inches(0.2), Inches(0.22), kicker, 11, GOLD, bold=True)
+        add_text_box(s, l + Inches(0.12), cap_t + Inches(0.24), tile_w - Inches(0.2), Inches(0.32), caption, 10, WHITE)
     footer(s, 3, total)
 
     # ----- 4 Positioning -----
@@ -484,9 +516,9 @@ def build():
     s = blank_slide(prs)
     title_block(s, "Five decisions needed in week 1", "Until these are answered, engineering can only stand up an empty AWS landing zone — not legal e-invoices.")
     decisions = [
-        ("1", "First jurisdiction", "India GST or Malaysia MyInvois? Pick where the first paying clients sit."),
+        ("1", "First jurisdiction — recommend Malaysia first", "Secretariat is in Petaling Jaya and McM already ran the MyInvois seminar with YGL. India GST is go-live #2 unless a named Indian pilot is signed this week."),
         ("2", "First domain", "Trading B2B is the correct default. Payroll and logistics follow."),
-        ("3", "Named partners", "Which GSP (India) and/or YGL (Malaysia). Contracts, not workshops."),
+        ("3", "Named partners — answered from the site", "Malaysia: YGL World is already on stage with McM (26 Jun 2024) — Yeap Kong Chean (CEO), Tay Hoay Leng (Tax Director), Yong Cheng Yew (Innovation Director), with Dato’ Seri Dr. Raymond Liew. India GSP still needs a signed contract."),
         ("4", "Operating entity", "Which McM legal entity owns the AWS org and customer contracts."),
         ("5", "Three pilots", "Named companies with live volume and a partner firm ready to operate them."),
     ]
