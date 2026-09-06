@@ -8,6 +8,8 @@ McMillan Woods is a global association of independent chartered accountancy and 
 
 **[docs/McMillan-Woods-E-Invoicing-Architecture-Plan.pptx](docs/McMillan-Woods-E-Invoicing-Architecture-Plan.pptx)** — 16-slide PowerPoint (widescreen 16:9). Open in PowerPoint, Keynote, or Google Slides.
 
+Slide 3 is a 2×2 of live `mcmillanwoods.com` pages (Home, About Us, Accountancy, Malaysia e-invoice seminar with YGL-World).
+
 ## Document
 
 **[docs/e-invoicing-architecture-and-delivery-plan.md](docs/e-invoicing-architecture-and-delivery-plan.md)** — full written plan:
